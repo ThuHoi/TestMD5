@@ -8,6 +8,7 @@ import { EditComponent } from './edit/edit.component';
 import { DeleteComponent } from './delete/delete.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { ViewDetailComponent } from './view-detail/view-detail.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ViewDetailComponent } from './view-detail/view-detail.component';
     CreateComponent,
     EditComponent,
     DeleteComponent,
-    ViewDetailComponent
+    ViewDetailComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,

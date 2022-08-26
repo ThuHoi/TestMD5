@@ -3,6 +3,7 @@ body {
   background: #f5f5f5;
   font-family: 'Varela Round', sans-serif;
   font-size: 13px;
+  line-height: 2.3;
 }
 .table-responsive {
   margin: 30px 0;

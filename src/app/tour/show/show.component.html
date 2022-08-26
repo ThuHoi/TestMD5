@@ -46,6 +46,7 @@
             <h2>Quản lý <b>Tour du lịch</b></h2>
           </div>
           <div class="col-sm-6">
+            <input type="text" placeholder="search" style="width: 300px" #find (input)="search(find.value)">
             <a routerLink="/create" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm tour mới</span></a>
           </div>
         </div>
@@ -56,7 +57,7 @@
           <th>#</th>
           <th>Tên</th>
           <th>Giá</th>
-          <th colspan="2" style="text-align: center"></th>
+          <th  align="center">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -64,8 +65,8 @@
           <td>{{i + 1}}</td>
           <td><a [routerLink]="'view/'+tour.id">{{tour.title}}</a></td>
           <td>{{tour.price}}</td>
-          <td><button class="btn btn-warning"><a [routerLink]="['/edit',tour.id]">Sửa</a></button></td>
-          <td><button class="btn btn-danger"><a [routerLink]="['/delete',tour.id]">Xóa</a></button></td>
+          <td style="width: 200px"><a class="btn btn-warning" [routerLink]="['/edit',tour.id]" style="margin-right: 10px">Sửa</a>
+            <a class="btn btn-danger" [routerLink]="['/delete',tour.id]">Xóa</a></td>
         </tr>
 
         </tbody>

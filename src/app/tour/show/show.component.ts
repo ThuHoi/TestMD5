@@ -10,7 +10,8 @@ import {TourServiceService} from "../../service/TourService.service";
 export class ShowComponent implements OnInit {
   tours: Tour[] = [];
 
-  constructor(private tourService: TourServiceService) { }
+  constructor(private tourService: TourServiceService) {
+  }
 
   ngOnInit(): void {
     this.getAll();
@@ -22,4 +23,17 @@ export class ShowComponent implements OnInit {
     });
   }
 
+  search(input: any) {
+    const tourSearch: Tour[] = [];
+    this.tourService.getAll().subscribe(tours => {
+      for (const tour of tours) {
+        if (tour.title?.toLowerCase().normalize('NFD') .replace(/[\u0300-\u036f]/g, '')
+          .replace(/đ/g, 'd').replace(/Đ/g, 'D').includes(input.toLowerCase().normalize('NFD') .replace(/[\u0300-\u036f]/g, '')
+            .replace(/đ/g, 'd').replace(/Đ/g, 'D'))) {
+          tourSearch.push(tour)
+        }
+        this.tours = tourSearch;
+      }
+    })
+  }
 }
