@@ -20,19 +20,20 @@
   <form style="width: 500px" [formGroup]="tourForm" (ngSubmit)="submit()">
     <div class="form-group">
       <label >Tên tour</label>
-      <input  class="form-control"  placeholder="Nhập tên tour" formControlName="title">
+      <input    class="form-control"  placeholder="Nhập tên tour" formControlName="title">
     </div>
-    <p *ngIf="!tourForm.get('title')?.valid && tourForm.get('title')?.touched" style="color: red">* Không được để trống!</p>
+      <p *ngIf="tourForm.get('title')?.errors?.['minlength'] && tourForm.get('title')?.touched" style="color: red">* 3 ki tu</p>
+      <p *ngIf="tourForm.get('title')?.errors?.['required'] && tourForm.get('title')?.touched" style="color: red">* trống</p>
     <div class="form-group">
       <label >Giá</label>
       <input  class="form-control"  placeholder="Nhập giá" formControlName="price">
     </div>
     <div class="form-group">
       <label >Mô tả</label>
-      <textarea  class="form-control"  placeholder="Nhập mô tả" formControlName="description"></textarea>
+      <textarea  class="form-control"  placeholer="Nhập mô tả" formControlName="description"></textarea>
     </div>
-    <p *ngIf="tourForm.get('description')?.hasError('required') && tourForm.get('description')?.touched" style="color: red">* Không được để trống!</p>
-    <p *ngIf="tourForm.get('description')?.hasError('minLength')" style="color: red">* Không được để dưới 3 kí tự!</p>
+    <p *ngIf="tourForm.get('description')?.errors?.['required'] && tourForm.get('description')?.touched" style="color: red">* Không được để trống!</p>
+    <p *ngIf="tourForm.get('description')?.errors?.['minlength']"  style="color: red">* Không được để dưới 3 kí tự!</p>
 
     <button type="submit" class="btn btn-primary" style="margin-right: 10px">Thêm mới</button>
     <a routerLink="" type="submit" class="btn btn-info">Hủy</a>

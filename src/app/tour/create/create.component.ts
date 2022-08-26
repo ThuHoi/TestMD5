@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class CreateComponent implements OnInit {
   tourForm: FormGroup = new FormGroup({
-    title: new FormControl("",Validators.required),
+    title: new FormControl("rrr",[Validators.required, Validators.minLength(3)]),
     price: new FormControl(0,Validators.pattern('[1-4]')),
     description: new FormControl("",[Validators.required, Validators.minLength(3)])
   });
